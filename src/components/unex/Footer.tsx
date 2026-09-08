@@ -1,4 +1,5 @@
-import { GraduationCap, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Instagram, Facebook, Linkedin } from "lucide-react";
+import { LogoMark, LogoWord } from "./Logo";
 
 export function FinalCta() {
   return (
@@ -37,11 +38,9 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.3fr_repeat(3,1fr)]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent text-accent-foreground">
-                <GraduationCap className="h-6 w-6" aria-hidden="true" />
-              </span>
+              <LogoMark className="ring-accent/60" />
               <span>
-                <span className="block font-display text-xl leading-none">UNEX</span>
+                <LogoWord className="block text-xl leading-none" />
                 <span className="block text-[11px] uppercase tracking-[0.18em] opacity-70">
                   Centro Universitário de Excelência
                 </span>

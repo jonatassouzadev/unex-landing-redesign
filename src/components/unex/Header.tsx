@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X, GraduationCap } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { LogoMark, LogoWord } from "./Logo";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -32,11 +33,9 @@ export function Header() {
     >
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 lg:px-8">
         <a href="#hero" className="flex min-w-0 items-center gap-3" aria-label="UNEX — página inicial">
-          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground">
-            <GraduationCap className="h-6 w-6" aria-hidden="true" />
-          </span>
+          <LogoMark />
           <span className="min-w-0">
-            <span className="block font-display text-xl leading-none tracking-tight text-foreground">UNEX</span>
+            <LogoWord className="block text-xl leading-none text-foreground" />
             <span className="block truncate text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
               Centro Universitário de Excelência
             </span>
