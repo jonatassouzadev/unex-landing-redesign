@@ -63,7 +63,7 @@ export function Units() {
             loading="lazy"
             className="aspect-[3/2] w-full rounded-[var(--radius-4xl)] object-cover shadow-[var(--shadow-elegant)]"
           />
-          <ul className="space-y-4">
+          <ul className="grid gap-5 sm:grid-cols-2">
             {units.map((u) => (
               <li key={u.city} className="rounded-[var(--radius-2xl)] border border-border bg-card p-6">
                 <h3 className="font-display text-xl text-card-foreground">{u.city}</h3>
@@ -75,6 +75,7 @@ export function Units() {
                   <Phone className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                   {u.phone}
                 </p>
+                <p className="mt-4 text-sm font-medium text-primary">{u.highlight}</p>
               </li>
             ))}
           </ul>
