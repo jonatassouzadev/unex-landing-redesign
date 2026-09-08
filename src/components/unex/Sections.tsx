@@ -1,7 +1,7 @@
+import { useState } from "react";
 import {
   Stethoscope,
   Scale,
-  Cpu,
   Briefcase,
   HeartPulse,
   Dna,
@@ -14,6 +14,15 @@ import {
   Handshake,
   Clock,
   ArrowRight,
+  Brain,
+  Smile,
+  PawPrint,
+  Monitor,
+  Pill,
+  Activity,
+  Apple,
+  Building2,
+  HardHat,
 } from "lucide-react";
 import aboutImg from "@/assets/about-campus.jpg";
 
@@ -102,46 +111,124 @@ export function About() {
   );
 }
 
-const courses = [
-  { icon: Stethoscope, name: "Medicina", mode: "Bacharelado · Integral", duration: "12 semestres" },
-  { icon: HeartPulse, name: "Enfermagem", mode: "Bacharelado · Noturno", duration: "10 semestres" },
-  { icon: Dna, name: "Biomedicina", mode: "Bacharelado · Noturno", duration: "8 semestres" },
-  { icon: Scale, name: "Direito", mode: "Bacharelado · Manhã e noite", duration: "10 semestres" },
-  { icon: Briefcase, name: "Administração", mode: "Bacharelado · Noturno", duration: "8 semestres" },
-  { icon: Cpu, name: "Engenharia de Software", mode: "Bacharelado · Híbrido", duration: "8 semestres" },
+const courseCatalog = [
+  {
+    unit: "Feira de Santana",
+    courses: [
+      { icon: Stethoscope, name: "Medicina", mode: "Bacharelado · Integral", duration: "12 semestres" },
+      { icon: HeartPulse, name: "Enfermagem", mode: "Bacharelado · Noturno", duration: "10 semestres" },
+      { icon: Scale, name: "Direito", mode: "Bacharelado · Manhã/noite", duration: "10 semestres" },
+      { icon: Briefcase, name: "Administração", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+      { icon: HardHat, name: "Engenharia Civil", mode: "Bacharelado · Noturno", duration: "10 semestres" },
+      { icon: Building2, name: "Arquitetura e Urbanismo", mode: "Bacharelado · Noturno", duration: "10 semestres" },
+    ],
+  },
+  {
+    unit: "Itabuna",
+    courses: [
+      { icon: Stethoscope, name: "Medicina", mode: "Bacharelado · Integral", duration: "12 semestres" },
+      { icon: Scale, name: "Direito", mode: "Bacharelado · Manhã/noite", duration: "10 semestres" },
+      { icon: Brain, name: "Psicologia", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+      { icon: Smile, name: "Odontologia", mode: "Bacharelado · Integral", duration: "8 semestres" },
+      { icon: PawPrint, name: "Medicina Veterinária", mode: "Bacharelado · Integral", duration: "10 semestres" },
+      { icon: HeartPulse, name: "Enfermagem", mode: "Bacharelado · Noturno", duration: "10 semestres" },
+      { icon: Monitor, name: "Sistemas de Informação", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+      { icon: Pill, name: "Farmácia", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+      { icon: Activity, name: "Fisioterapia", mode: "Bacharelado · Integral", duration: "8 semestres" },
+      { icon: Dna, name: "Biomedicina", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+      { icon: Briefcase, name: "Administração", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+      { icon: Apple, name: "Nutrição", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+    ],
+  },
+  {
+    unit: "Jequié",
+    courses: [
+      { icon: Stethoscope, name: "Medicina", mode: "Bacharelado · Integral", duration: "12 semestres" },
+      { icon: Briefcase, name: "Administração", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+      { icon: Dna, name: "Biomedicina", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+      { icon: Scale, name: "Direito", mode: "Bacharelado · Manhã/noite", duration: "10 semestres" },
+      { icon: Brain, name: "Psicologia", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+      { icon: HeartPulse, name: "Enfermagem", mode: "Bacharelado · Noturno", duration: "10 semestres" },
+      { icon: Smile, name: "Odontologia", mode: "Bacharelado · Integral", duration: "8 semestres" },
+      { icon: Activity, name: "Fisioterapia", mode: "Bacharelado · Integral", duration: "8 semestres" },
+      { icon: Pill, name: "Farmácia", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+    ],
+  },
+  {
+    unit: "Vitória da Conquista",
+    courses: [
+      { icon: Stethoscope, name: "Medicina", mode: "Bacharelado · Integral", duration: "12 semestres" },
+      { icon: Dna, name: "Biomedicina", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+      { icon: Scale, name: "Direito", mode: "Bacharelado · Manhã/noite", duration: "10 semestres" },
+      { icon: Brain, name: "Psicologia", mode: "Bacharelado · Noturno", duration: "8 semestres" },
+      { icon: HeartPulse, name: "Enfermagem", mode: "Bacharelado · Noturno", duration: "10 semestres" },
+      { icon: Smile, name: "Odontologia", mode: "Bacharelado · Integral", duration: "8 semestres" },
+    ],
+  },
 ];
 
 export function Courses() {
+  const [activeUnit, setActiveUnit] = useState(0);
   return (
     <section id="cursos" className="bg-secondary py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionTitle
           eyebrow="Cursos"
-          title="Graduações reconhecidas pelo MEC e alinhadas ao mercado"
-          description="Mais de 20 cursos de graduação, pós-graduação e cursos técnicos. Confira alguns dos
-          destaques da UNEX."
+          title="Graduações reconhecidas pelo MEC, por unidade"
+          description="Escolha uma cidade e veja os cursos disponíveis. Na UNEX, cada unidade carrega o mesmo padrão de excelência e infraestrutura de ponta."
         />
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {courses.map(({ icon: Icon, name, mode, duration }) => (
-            <li
-              key={name}
-              className="group rounded-[var(--radius-2xl)] border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
+        <div className="mt-10 flex flex-wrap gap-2" role="tablist" aria-label="Cursos por unidade">
+          {courseCatalog.map(({ unit }, i) => (
+            <button
+              key={unit}
+              role="tab"
+              aria-selected={i === activeUnit}
+              aria-controls={`cursos-${unit}`}
+              onClick={() => setActiveUnit(i)}
+              className={
+                i === activeUnit
+                  ? "rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors"
+                  : "rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-card-foreground transition-colors hover:border-primary/40 hover:text-primary"
+              }
             >
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/5 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                <Icon className="h-6 w-6" aria-hidden="true" />
-              </span>
-              <h3 className="mt-5 font-display text-xl text-card-foreground">{name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{mode}</p>
-              <p className="text-sm text-muted-foreground">{duration}</p>
-              <a
-                href="#inscricao"
-                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary"
-              >
-                Ver detalhes <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-            </li>
+              {unit}
+            </button>
           ))}
-        </ul>
+        </div>
+        <div className="mt-8">
+          {courseCatalog.map(({ unit, courses }, i) => (
+            <div
+              key={unit}
+              id={`cursos-${unit}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${unit}`}
+              hidden={i !== activeUnit}
+              className={i === activeUnit ? "block" : "hidden"}
+            >
+              <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {courses.map(({ icon: Icon, name, mode, duration }) => (
+                  <li
+                    key={name}
+                    className="group rounded-[var(--radius-2xl)] border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
+                  >
+                    <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/5 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                      <Icon className="h-6 w-6" aria-hidden="true" />
+                    </span>
+                    <h3 className="mt-5 font-display text-xl text-card-foreground">{name}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{mode}</p>
+                    <p className="text-sm text-muted-foreground">{duration}</p>
+                    <a
+                      href="#inscricao"
+                      className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                    >
+                      Ver detalhes <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
