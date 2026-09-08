@@ -1,7 +1,7 @@
+import { useState } from "react";
 import {
   Stethoscope,
   Scale,
-  Cpu,
   Briefcase,
   HeartPulse,
   Dna,
@@ -14,6 +14,15 @@ import {
   Handshake,
   Clock,
   ArrowRight,
+  Brain,
+  Smile,
+  PawPrint,
+  Monitor,
+  Pill,
+  Activity,
+  Apple,
+  Building2,
+  HardHat,
 } from "lucide-react";
 import aboutImg from "@/assets/about-campus.jpg";
 
