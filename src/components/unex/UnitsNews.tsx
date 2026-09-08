@@ -4,9 +4,30 @@ import unitImg from "@/assets/unit-campus.jpg";
 import newsImg from "@/assets/news-lab.jpg";
 
 const units = [
-  { city: "Feira de Santana", address: "Av. Getúlio Vargas, 1240 — Centro", phone: "(75) 3600-1000" },
-  { city: "Vitória da Conquista", address: "Av. Olívia Flores, 890 — Candeias", phone: "(77) 3420-2000" },
-  { city: "Itabuna", address: "Rua Miguel Calmon, 315 — São Caetano", phone: "(73) 3210-3000" },
+  {
+    city: "Feira de Santana",
+    address: "Av. Getúlio Vargas, 1240 — Centro",
+    phone: "(75) 3600-1000",
+    highlight: "Medicina, Saúde, Gestão, Direito, Engenharia e Arquitetura",
+  },
+  {
+    city: "Itabuna",
+    address: "Rua Miguel Calmon, 315 — São Caetano",
+    phone: "(73) 3210-3000",
+    highlight: "Medicina, Direito, Psicologia, Odontologia, Veterinária e mais",
+  },
+  {
+    city: "Jequié",
+    address: "Av. Dom Jackson Damasceno, 620 — Jardim das Oliveiras",
+    phone: "(73) 3520-4000",
+    highlight: "Medicina, Administração, Biomedicina, Direito e Psicologia",
+  },
+  {
+    city: "Vitória da Conquista",
+    address: "Av. Olívia Flores, 890 — Candeias",
+    phone: "(77) 3420-2000",
+    highlight: "Medicina, Biomedicina, Direito, Psicologia, Enfermagem e Odontologia",
+  },
 ];
 
 const news = [
